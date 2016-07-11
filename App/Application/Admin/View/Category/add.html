@@ -1,0 +1,81 @@
+<extend name="Public/layer" />
+<block name="body">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>
+                            添加栏目
+                        </h5>
+                    </div>
+                    <div class="ibox-content">
+                        <if condition="$vo['id']">
+                            <form class="form-horizontal" method="post" action="{:U('update')}" onsubmit="return ajaxForm(this)">
+                        <else/>
+                            <form class="form-horizontal" method="post" action="{:U('insert')}" onsubmit="return ajaxForm(this)">
+                        </if>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    栏目名称
+                                </label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" name="name" value="{$vo.name}"></input>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    排序
+                                </label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" name="sort" value="{$vo.sort}"></input>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    栏目标题
+                                </label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" name="title" value="{$vo.title}"></input>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    栏目关键字
+                                </label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" name="keywords" value="{$vo.keywords}"></input>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    栏目描述
+                                </label>
+                                <div class="col-sm-10">
+                                     <textarea id="ccomment" name="description" class="form-control" required="" aria-required="true">{$vo.description}</textarea>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed">
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                    <if condition="I('id')">
+                                        <input type="hidden" name="id" value="{:I('get.id')}">
+                                    </if>
+                                    <input type="hidden" name="pid" value="{:I('get.pid', 0)}">
+                                    <button class="btn btn-primary" type="submit">
+                                        保存内容
+                                    </button>
+                                    <button class="btn btn-white" type="submit">
+                                        取消
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>

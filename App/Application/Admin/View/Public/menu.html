@@ -1,0 +1,173 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="nav-close">
+        <i class="fa fa-times-circle">
+        </i>
+    </div>
+    <div class="sidebar-collapse">
+        <ul class="nav" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <span>
+                        <img alt="image" class="img-circle" src="__PUBLIC__/img/profile_small.jpg"/>
+                    </span>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <span class="clear">
+                            <span class="block m-t-xs">
+                                <strong class="font-bold">
+                                    Hello
+                                </strong>
+                            </span>
+                            <span class="text-muted text-xs block">
+                                {:session('nickname')}
+                            </span>
+                        </span>
+                    </a>
+                </div>
+                <div class="logo-element">
+                    H+
+                </div>
+            </li>
+            <li>
+                <a href="{:U('/Admin')}">
+                    <i class="fa fa-home">
+                    </i>
+                    <span class="nav-label">
+                        后台首页
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-desktop">
+                    </i>
+                    <span class="nav-label">
+                        会员管理
+                    </span>
+                    <span class="fa arrow">
+                    </span>
+                </a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{:U('User/index')}">
+                            会员列表
+                        </a>
+                    </li>
+                    <!-- <li>
+                        <a href="{:U('WithdrawLog/index')}">
+                            提现申请
+                        </a>
+                    </li> -->
+                </ul>
+            </li>
+            <li>
+                <a href="{:U('Category/index')}">
+                    <i class="fa fa-columns">
+                    </i>
+                    <span class="nav-label">
+                        提现记录
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <i class="fa fa-desktop">
+                    </i>
+                    <span class="nav-label">
+                        文章管理
+                    </span>
+                    <span class="fa arrow">
+                    </span>
+                </a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{:U('Article/index')}">
+                            文章列表
+                        </a>
+                    </li>
+                     <li>
+                        <a href="{:U('Article/add')}">
+                            添加文章
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="{:U('Problem/index')}">
+                    <i class="fa fa-table">
+                    </i>
+                    <span class="nav-label">
+                        问答管理
+                    </span>
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{:U('Problem/index')}">
+                            问答列表
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <!-- <li>
+                <a href="{:U('Message/index')}">
+                    <i class="fa fa-desktop">
+                    </i>
+                    <span class="nav-label">
+                        消息管理
+                    </span>
+                    <span class="fa arrow">
+                    </span>
+                </a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{:U('Message/index')}">
+                            消息列表
+                        </a>
+                    </li>
+                </ul>
+            </li> -->
+            <li>
+                <a href="{:U('Banner/index')}">
+                    <i class="fa fa-desktop">
+                    </i>
+                    <span class="nav-label">
+                        广告管理
+                    </span>
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{:U('Banner/index')}">
+                            广告列表
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{:U('Banner/add')}">
+                            广告添加
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="{:U('System/index')}">
+                    <i class="fa fa-desktop">
+                    </i>
+                    <span class="nav-label">
+                        系统管理
+                    </span>
+                    <span class="fa arrow">
+                    </span>
+                </a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{:U('Admin/index')}">
+                            管理员管理
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>

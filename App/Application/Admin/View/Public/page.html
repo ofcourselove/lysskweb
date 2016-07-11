@@ -1,0 +1,61 @@
+<if condition="$count gt $page_size">
+    <div class="row">
+    <div class="col-sm-6">
+    </div>
+    <div class="col-sm-6">
+        <div class="dataTables_paginate paging_simple_numbers" id="editable_paginate">
+            <ul class="pagination">
+                <volist name="page_list" id="vo">
+                    <switch name="vo.name">
+                        <case value="prev">
+                            <if condition="$vo['status'] eq 'disabled'">
+                                <li aria-controls="editable" class="paginate_button previous disabled" id="editable_previous" tabindex="0">
+                                    <a href="#">
+                                        上一页
+                                    </a>
+                                </li>
+                            <else />
+                                <li aria-controls="editable" class="paginate_button previous" id="editable_previous" tabindex="0">
+                                    <a href="{$vo.url}">
+                                        上一页
+                                    </a>
+                                </li>
+                            </if>
+                        </case>
+                        <case name="list">
+                            <if condition="$vo['status'] eq 'now'">
+                                <li aria-controls="editable" class="paginate_button active" tabindex="0">
+                                    <a href="#">
+                                        {$vo.page}
+                                    </a>
+                                </li>
+                            <else />
+                                <li aria-controls="editable" class="paginate_button" tabindex="0">
+                                    <a href="{$vo.url}">
+                                        {$vo.page}
+                                    </a>
+                                </li>
+                            </if>
+                        </case>
+                        <case name="next">
+                            <if condition="$vo['status'] eq 'disabled'">
+                                <li aria-controls="editable" class="paginate_button next disabled" id="editable_next" tabindex="0">
+                                    <a href="#">
+                                        下一页
+                                    </a>
+                                </li>
+                            <else />
+                                <li aria-controls="editable" class="paginate_button next" id="editable_next" tabindex="0">
+                                    <a href="{$vo.page}">
+                                        下一页
+                                    </a>
+                                </li>
+                            </if>
+                        </case>
+                    </switch>
+                </volist>
+            </ul>
+        </div>
+    </div>
+</div>
+</if>

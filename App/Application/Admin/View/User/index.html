@@ -1,0 +1,91 @@
+<extend name="Public/layer" />
+<block name="body">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>
+                            会员列表
+                        </h5>
+                    </div>
+                    <div class="ibox-content">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        ID
+                                    </th>
+                                    <th>
+                                        手机号
+                                    </th>
+                                    <th>签到</th>
+                                    <th>当前收益</th>
+                                    <th>历史收益</th>
+                                    <th>总金额</th>
+                                    <th>提现金额</th>
+                                    <th>个人</th>
+                                    <th>推荐</th>
+                                    <th>徒弟</th>
+                                    <th>康转币数</th>
+                                    <th>打赏</th>
+                                    <th>状态</th>
+                                    <th>操作</th>
+                                    <th>注册</th>
+                                    <th>详情</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <volist name="list" id="vo">
+                                    <tr>
+                                        <td>
+                                            {$vo.id}
+                                        </td>
+                                        <td>
+                                            {$vo.mobile}
+                                        </td>
+                                        <td>{$vo.username}</td>
+                                        <td>{$vo.nickname}</td>
+                                        <td>{$vo.balance}</td>
+                                        <td>{$vo.income}</td>
+                                        <td>
+                                            <a href="{:U('BalanceLog/index')}">查看</a>
+                                        </td>
+                                        <td>
+                                            <a href="{:U('BalanceLog/index')}">查看</a>
+                                        </td>
+                                        <td>
+                                            <a href="{:U('BalanceLog/index')}">查看</a>
+                                        </td>
+                                        <td>
+                                            <a href="{:U('BalanceLog/index')}">查看</a>
+                                        </td>
+                                        <td>
+                                            <a href="{:U('BalanceLog/index')}">查看</a>
+                                        </td>
+                                        <td>
+                                            <a href="{:U('BalanceLog/index')}">查看</a>
+                                        </td>
+                                        <td>
+                                            <a href="{:U('BalanceLog/index')}">查看</a>
+                                        </td>
+                                        <td>
+                                            <a href="{:U('BalanceLog/index')}">查看</a>
+                                        </td>
+                                        <td>
+                                            <a href="{:U('BalanceLog/index')}">查看</a>
+                                        </td>
+                                        <td>
+                                            <a href="{:U('BalanceLog/index')}">查看</a>
+                                        </td>
+                                    </tr>
+                                </volist>
+                            </tbody>
+                        </table>
+                        <include file="Public::page" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>

@@ -1,0 +1,60 @@
+<extend name="Public/layer" />
+<block name="body">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>
+                            问题列表
+                        </h5>
+                    </div>
+                    <div class="ibox-content">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        ID
+                                    </th>
+                                    <th>
+                                        问题标题
+                                    </th>
+                                    <th>问题描述</th>
+                                    <th>状态</th>
+                                    <th>
+                                        操作
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <volist name="list" id="vo">
+                                    <tr>
+                                        <td>
+                                          按时速度
+                                            {$vo.id}
+                                        </td>
+                                        <td>
+                                            {$vo.title}
+                                        </td>
+                                        <td>{$vo.desc}</td>
+                                        <td>
+                                            <switch name="vo.status">
+                                                <case value="0">待审核</caes>
+                                                <case value="1">审核通过</case>
+                                                <case value="2">审核驳回</case>
+                                            </switch>
+                                        </td>
+                                        <td>
+                                            <a href="{:U('Answer/index', array('problem_id'=>$vo['id']))}">查看答案</a>|<a href="{:U('status', array('id'=>$vo['id'], 'status'=>1))}">审核通过</a>| <a href="{:U('status', array('id'=>$vo['id'], 'status'=>2))}">审核驳回</a>|<a href="{:U('edit', array('id'=>$vo['id']))}">编辑</a> | <a href="{:U('del', array('id'=>$vo['id']))}" onclick="return ajaxBtn(this)">删除</a>
+                                        </td>
+                                    </tr>
+                                </volist>
+                            </tbody>
+                        </table>
+                        <include file="Public::page" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>

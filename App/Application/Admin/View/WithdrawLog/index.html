@@ -1,0 +1,71 @@
+<extend name="Public/layer" />
+<block name="body">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>
+                            提现记录
+                        </h5>
+                    </div>
+                    <div class="ibox-content">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        ID
+                                    </th>
+                                    <th>
+                                        会员用户名
+                                    </th>
+                                    <th>提现金额</th>
+                                    <th>提现类型</th>
+                                    <th>状态</th>
+                                    <th>
+                                        操作
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <volist name="list" id="vo">
+                                    <tr>
+                                        <td>
+                                            {$vo.id}
+                                        </td>
+                                        <td>
+                                            {$vo.username}
+                                        </td>
+                                        <td>{$vo.amount}</td>
+                                        <td>
+                                            <switch name="vo.pay_type">
+                                                <case value="1">微信</case>
+                                                <case value="2">支付宝</case>
+                                            </switch>
+                                        </td>
+                                        <td>
+                                            <switch name="vo.status">
+                                                <case value="0">待审核</case>
+                                                <case value="1">审核通过</case>
+                                                <case value="2">审核驳回</case>
+                                            </switch>
+                                        </td>
+                                        <td>
+                                            <switch name="vo.status">
+                                                <case value="0">
+                                                    <a href="{:U('WithdrawLog/status', array('status'=> 1,'id'=>$vo['id']))}">审核通过</a> |
+                                                    <a href="{:U('WithdrawLog/status', array('status'=> 2,'id'=>$vo['id']))}">审核驳回</a>
+                                                </case>
+                                            </switch>
+                                        </td>
+                                    </tr>
+                                </volist>
+                            </tbody>
+                        </table>
+                        <include file="Public::page" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>

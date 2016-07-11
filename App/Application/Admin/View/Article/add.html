@@ -1,0 +1,157 @@
+<extend name="Public/layer" />
+<block name="body">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>
+                            添加文章
+                        </h5>
+                    </div>
+                    <div class="ibox-content">
+                        <if condition="$vo['id']">
+                            <form class="form-horizontal" method="post" action="{:U('update')}" onsubmit="return ajaxForm(this)">
+                        <else/>
+                            <form class="form-horizontal" method="post" action="{:U('insert')}" onsubmit="return ajaxForm(this)">
+                        </if>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    文章标题
+                                </label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" name="title" value="{$vo.title}"></input>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed">
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    所属栏目
+                                </label>
+                                <div class="col-sm-10">
+                                    <select class="form-control m-b" name="category_id">
+                                        <volist name="category_list" id="v">
+                                            <option value="{$v.id}" <if condition="$v['id'] eq $vo['category_id']">selected="selected"</if>>{$v.html}{$v.name}</option>
+                                        </volist>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    推荐阅读
+                                </label>
+                                <div class="col-sm-10">
+                                    <if condition="$vo['type'] eq 1 or empty($vo['id'])">
+                                        <input type="radio" name="type" id="" value="1" checked="checked">是
+                                        <input type="radio" name="type" id="" value="0">否
+                                    <else />
+                                        <input type="radio" name="type" id="" value="1">是
+                                        <input type="radio" name="type" id="" value="0" checked="checked">否
+                                    </if>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed">
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    缩略图
+                                </label>
+                                <div class="input-group m-b">
+                                    <div class="input-group-btn">
+                                            <button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button">操作 <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="" class="upImg">上传</a></li>
+                                                <input type="file" name="upfile" id="upfile" style="display:none">
+                                                <li><a href="" class="reviewImg" onclick="return reviewImg(this);">预览</a>
+                                            </ul>
+                                    </div>
+                                    <input type="text" class="form-control" name="thumb">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed">
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    文章内容
+                                </label>
+                                <div class="col-sm-10">
+                                    <script type="text/plain" id="ueditor" name="content">{$vo.content}</script>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed">
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                    <if condition="I('id')">
+                                        <input type="hidden" name="id" value="{:I('get.id')}">
+                                    </if>
+                                    <button class="btn btn-primary" type="submit">
+                                        保存内容
+                                    </button>
+                                    <button class="btn btn-white" type="submit">
+                                        取消
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>
+<block name='script'>
+    <script src="__PUBLIC__/js/plugins/ueditor/ueditor.config.js"></script>
+    <script src="__PUBLIC__/js/plugins/ueditor/ueditor.all.js"></script>
+    <script src="__PUBLIC__/js/plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
+    <script>
+        UE.getEditor('ueditor');
+
+        $('.upImg').click(function(){
+            $('#upfile').trigger('click');
+            return false;
+        })
+
+        $('#upfile').change(function(){
+            $.ajaxFileUpload({
+                url: "{:U('Upload/uploadImg')}",
+                secureuri: false,
+                fileElementId: 'upfile',
+                dataType: 'json',
+                success: function (data) {
+                    if (data['status'] == 1) {
+                        $('[name=thumb]').attr('value', data['info']);
+                    } else {
+                        layer.alert(data.info);
+                    }
+                },
+                error: function (data) {
+                    alert(data);
+                }
+            });
+            return false;
+        })
+
+        function reviewImg(dom) {
+            var path = $('[name=thumb]').attr('value');
+            if (path == '' || path == undefined) {
+                layer.alert('请先上传广告图');
+                return false;
+            }
+
+            layer.open({
+              type: 1,
+              title: false,
+              closeBtn: 0,
+              area: '516px',
+              skin: 'layui-layer-nobg', //没有背景色
+              shadeClose: true,
+              content: '<img src="'+path+'" />',
+            });
+            return false;
+        }
+    </script>
+</block>

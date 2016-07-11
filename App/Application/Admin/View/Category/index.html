@@ -1,0 +1,60 @@
+<extend name="Public/layer" />
+<block name="body">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <p><a href="{:U('add')}" class="btn btn-w-m btn-primary">添加</a></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>
+                            栏目列表
+                        </h5>
+                    </div>
+                    <div class="ibox-content">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        ID
+                                    </th>
+                                    <th>
+                                        栏目名称
+                                    </th>
+                                    <td>排序</td>
+                                    <td>栏目标题</td>
+                                    <th>
+                                        操作
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <volist name="list" id="vo">
+                                    <tr>
+                                        <td>
+                                            {$vo.id}
+                                        </td>
+                                        <td>
+                                            {$vo.name}
+                                        </td>
+                                        <td>
+                                            {$vo.sort}
+                                        </td>
+                                        <td>{$vo.title}</td>
+                                        <td>
+                                            <a href="{:U('add', array('pid'=>$vo['id']))}">添加子栏目</a>|<a href="{:U('index', array('pid'=>$vo['id']))}">查看下级栏目</a>|<a href="{:U('edit', array('id'=>$vo['id']))}">编辑</a> | <a href="{:U('del', array('id'=>$vo['id']))}" onclick="return ajaxBtn(this)">删除</a>
+                                        </td>
+                                    </tr>
+                                </volist>
+                            </tbody>
+                        </table>
+                        <include file="Public::page" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>
