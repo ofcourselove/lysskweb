@@ -1,0 +1,53 @@
+<extend name="Public/layer" />
+<block name="body">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <!-- <div class="row">
+            <div class="col-sm-12">
+                <p><a href="{:U('add')}" class="btn btn-w-m btn-primary">添加</a></p>
+            </div>
+        </div> -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>
+                            
+                        </h5>
+                    </div>
+                    <div class="ibox-content">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        用户ID
+                                    </th>
+                                    <th>
+                                        充值金额
+                                    </th>
+                                    <th>时间</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <volist name="list" id="vo"> 
+                                    <tr>
+                                        <td>
+                                            {$vo.user_id}
+                                        </td>
+                                        <td>
+                                            {$vo.balance}
+                                        </td>
+                                        <td>
+                                            {:date('Y-m-d H:i:s', $vo['create_time'])}
+                                        </td>
+                                    </tr>
+                                </volist>
+                            </tbody>
+                        </table>
+                        <include file="Public::page" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>

@@ -1,0 +1,51 @@
+<extend name="Public/layer" />
+<block name="body">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <!-- <div class="row">
+            <div class="col-sm-12">
+                <p><a href="{:U('add')}" class="btn btn-w-m btn-primary">添加</a></p>
+            </div>
+        </div> -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>
+                            
+                        </h5>
+                    </div>
+                    <div class="ibox-content">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                   <!--  <th>
+                                        用户ID
+                                    </th> -->
+                                    <th>
+                                        徒弟ID
+                                    </th>
+                                    <th>
+                                        收益金额
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <volist name="list" id="vo"> 
+                                    <tr>
+                                        <td>
+                                            {$vo.user_id}
+                                        </td>
+                                        <td>
+                                           <?php echo $vo['count']*$sum+0.5?> 
+                                        </td>
+                                </volist>
+                            </tbody>
+                        </table>
+                        <include file="Public::page" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>

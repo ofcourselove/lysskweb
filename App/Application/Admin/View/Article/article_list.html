@@ -1,0 +1,63 @@
+<extend name="Public/layer" />
+<block name="body">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <!-- <div class="row">
+            <div class="col-sm-12">
+                <p><a href="{:U('add')}" class="btn btn-w-m btn-primary">添加</a></p>
+            </div>
+        </div> -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>
+                            
+                        </h5>
+                    </div>
+                    <div class="ibox-content">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                   <!--  <th>
+                                        用户ID
+                                    </th> -->
+                                    <th>
+                                        文章ID
+                                    </th>
+                                    <th>
+                                        创建时间
+                                    </th>                                    
+                                    <th>
+                                        收益金额
+                                    </th>
+                                    <th>
+                                        次数
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <volist name="list" id="vo"> 
+                                    <tr>
+                                        <td>
+                                           {$vo.id}
+                                        </td>
+                                        <td>
+                                           {:date('Y-m-d H:i:s', $vo['create_time'])}
+                                        </td>
+                                        <td>
+                                           0.04
+                                        </td>
+                                        <td>
+                                            <a href="">{$vo.click_count}</a>
+                                        </td>
+                                </volist>
+                            </tbody>
+                        </table>
+                        <include file="Public::page" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>

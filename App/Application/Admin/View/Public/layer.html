@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <!--[if lt IE 8]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+    <include file="Public/style" />
+</head>
+<body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
+    <div id="wrapper">
+        <!--左侧导航开始-->
+        <include file="Public::menu" />
+        <!--左侧导航结束-->
+        <!--右侧部分开始-->
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+            <include file="Public:header" />
+            <div class="row J_mainContent" id="content-main">
+                <block name="body"></block>
+            </div>
+            <div class="footer">
+                <include file="Public/footer" />
+            </div>
+        </div>
+    </div>
+    <include file="Public/script"/>
+    <block name='script'></block>
+</body>
+</html>
