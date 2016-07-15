@@ -1,0 +1,73 @@
+<extend name="Public/layer" />
+<block name="body">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>
+                            添加权限  用户名：{$list['username']}
+                        </h5>
+                    </div>
+                    <div class="ibox-content">
+                            <div class="hr-line-dashed">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    栏目管理：
+                                  </label>
+                                <form action="{:U('level')}" method=post>
+                                    <input name="select[]" type="checkbox" value="11"<?php if(in_array('11',$level)){?> checked <?php }?> />添加&nbsp;
+                                    <input name="select[]" type="checkbox" value="12"<?php if(in_array('12',$level)){?> checked <?php }?> />删除&nbsp;
+                                    <input name="select[]" type="checkbox" value="13" <?php if(in_array('13',$level)){?> checked <?php }?>/>编辑&nbsp;
+                                    <input name="select[]" type="checkbox" value="14" <?php if(in_array('14',$level)){?> checked <?php }?>/>查看&nbsp;
+
+                                      <div class="hr-line-dashed">
+                                      </div>
+                                     <label class="col-sm-2 control-label">
+                                        提现记录：
+                                      </label>
+                                      <input name="select[]" type="checkbox" value="21"<?php if(in_array('21',$level)){?> checked <?php }?>/>查看
+                                      <div class="hr-line-dashed">
+                                      </div>
+                                     <label class="col-sm-2 control-label">
+                                        文章管理：
+                                      </label>
+                                      <input name="select[]" type="checkbox" value="31"<?php if(in_array('31',$level)){?> checked <?php }?> />添加 &nbsp;
+                                      <input name="select[]" type="checkbox" value="32"<?php if(in_array('32',$level)){?> checked <?php }?>/>删除 &nbsp;
+                                      <input name="select[]" type="checkbox" value="33"<?php if(in_array('33',$level)){?> checked <?php }?> />编辑&nbsp;
+                                      <input name="select[]" type="checkbox" value="34"<?php if(in_array('34',$level)){?> checked <?php }?> />查看&nbsp;
+                                      <div class="hr-line-dashed">
+                                      </div>
+                                     <label class="col-sm-2 control-label">
+                                        问答管理：
+                                      </label>
+                                      <input name="select[]" type="checkbox" value="41"<?php if(in_array('41',$level)){?> checked <?php }?> />添加 &nbsp;
+                                      <input name="select[]" type="checkbox" value="42"<?php if(in_array('42',$level)){?> checked <?php }?> />删除 &nbsp;
+                                      <input name="select[]" type="checkbox" value="43"<?php if(in_array('43',$level)){?> checked <?php }?> />编辑&nbsp;
+                                      <input name="select[]" type="checkbox" value="44"<?php if(in_array('44',$level)){?> checked <?php }?> />查看&nbsp;
+                                      <div class="hr-line-dashed">
+                                      </div>
+                                     <label class="col-sm-2 control-label">
+                                        广告管理：
+                                      </label>
+                                      <input name="select[]" type="checkbox" value="51"<?php if(in_array('51',$level)){?> checked <?php }?> />添加 &nbsp;
+                                      <input name="select[]" type="checkbox" value="52"<?php if(in_array('52',$level)){?> checked <?php }?> />删除 &nbsp;
+                                      <input name="select[]" type="checkbox" value="53"<?php if(in_array('53',$level)){?> checked <?php }?> />编辑&nbsp;
+                                      <input name="select[]" type="checkbox" value="54"<?php if(in_array('54',$level)){?> checked <?php }?> />查看&nbsp;
+                                      <input type="hidden" name="id" value="<?php echo $list['0']['id'] ?>" />
+                                      <div class="hr-line-dashed">
+                                      </div>
+                                      <div class="col-sm-4 col-sm-offset-2">
+                                           <input class="btn btn-primary"value="提交权限" type=submit>&nbsp;
+                                           <a href="{:U('/admin/admin')}"><input class="btn btn-primary"value="取消" ></a>
+                                      </div>
+                                </form>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>

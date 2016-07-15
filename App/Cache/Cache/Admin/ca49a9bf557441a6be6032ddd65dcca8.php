@@ -234,97 +234,68 @@
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
             <div class="col-sm-12">
-                <p><a href="<?php echo U('add');?>" class="btn btn-w-m btn-primary">添加</a></p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <h5>
-                            管理员列表
+                            添加权限  用户名：<?php echo ($list['username']); ?>
                         </h5>
-
                     </div>
                     <div class="ibox-content">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        ID
-                                    </th>
-                                    <th>
-                                        用户名
-                                    </th>
-                                    <th>
-                                        昵称
-                                    </th>
-                                    <th>
-                                        操作
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
-                                        <td>
-                                            <?php echo ($vo["id"]); ?>
-                                        </td>
-                                        <td>
-                                            <?php echo ($vo["username"]); ?>
-                                        </td>
-                                        <td>
-                                            <?php echo ($vo["nickname"]); ?>
-                                        </td>
-                                        <td>
-                                            <a href="<?php echo U('edit', array('id'=>$vo['id']));?>">编辑</a> | <a href="<?php echo U('del', array('id'=>$vo['id']));?>" onclick="return ajaxBtn(this)">删除</a>
-                                            | <a href="<?php echo U('level', array('id'=>$vo['id']));?>">权限管理</a>
-                                        </td>
-                                    </tr><?php endforeach; endif; else: echo "" ;endif; ?>
-                            </tbody>
-                        </table>
-                        <?php if($count > $page_size): ?><div class="row">
-    <div class="col-sm-6">
-    </div>
-    <div class="col-sm-6">
-        <div class="dataTables_paginate paging_simple_numbers" id="editable_paginate">
-            <ul class="pagination">
-                <?php if(is_array($page_list)): $i = 0; $__LIST__ = $page_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i; switch($vo["name"]): case "prev": if($vo['status'] == 'disabled'): ?><li aria-controls="editable" class="paginate_button previous disabled" id="editable_previous" tabindex="0">
-                                    <a href="#">
-                                        上一页
-                                    </a>
-                                </li>
-                            <?php else: ?>
-                                <li aria-controls="editable" class="paginate_button previous" id="editable_previous" tabindex="0">
-                                    <a href="<?php echo ($vo["url"]); ?>">
-                                        上一页
-                                    </a>
-                                </li><?php endif; break;?>
-                        <?php case "": if($vo['status'] == 'now'): ?><li aria-controls="editable" class="paginate_button active" tabindex="0">
-                                    <a href="#">
-                                        <?php echo ($vo["page"]); ?>
-                                    </a>
-                                </li>
-                            <?php else: ?>
-                                <li aria-controls="editable" class="paginate_button" tabindex="0">
-                                    <a href="<?php echo ($vo["url"]); ?>">
-                                        <?php echo ($vo["page"]); ?>
-                                    </a>
-                                </li><?php endif; break;?>
-                        <?php case "": if($vo['status'] == 'disabled'): ?><li aria-controls="editable" class="paginate_button next disabled" id="editable_next" tabindex="0">
-                                    <a href="#">
-                                        下一页
-                                    </a>
-                                </li>
-                            <?php else: ?>
-                                <li aria-controls="editable" class="paginate_button next" id="editable_next" tabindex="0">
-                                    <a href="<?php echo ($vo["page"]); ?>">
-                                        下一页
-                                    </a>
-                                </li><?php endif; break; endswitch; endforeach; endif; else: echo "" ;endif; ?>
-            </ul>
-        </div>
-    </div>
-</div><?php endif; ?>
+                            <div class="hr-line-dashed">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    栏目管理：
+                                  </label>
+                                <form action="<?php echo U('level');?>" method=post>
+                                    <input name="select[]" type="checkbox" value="11"<?php if(in_array('11',$level)){?> checked <?php }?> />添加&nbsp;
+                                    <input name="select[]" type="checkbox" value="12"<?php if(in_array('12',$level)){?> checked <?php }?> />删除&nbsp;
+                                    <input name="select[]" type="checkbox" value="13" <?php if(in_array('13',$level)){?> checked <?php }?>/>编辑&nbsp;
+                                    <input name="select[]" type="checkbox" value="14" <?php if(in_array('14',$level)){?> checked <?php }?>/>查看&nbsp;
+
+                                      <div class="hr-line-dashed">
+                                      </div>
+                                     <label class="col-sm-2 control-label">
+                                        提现记录：
+                                      </label>
+                                      <input name="select[]" type="checkbox" value="21"<?php if(in_array('21',$level)){?> checked <?php }?>/>查看
+                                      <div class="hr-line-dashed">
+                                      </div>
+                                     <label class="col-sm-2 control-label">
+                                        文章管理：
+                                      </label>
+                                      <input name="select[]" type="checkbox" value="31"<?php if(in_array('31',$level)){?> checked <?php }?> />添加 &nbsp;
+                                      <input name="select[]" type="checkbox" value="32"<?php if(in_array('32',$level)){?> checked <?php }?>/>删除 &nbsp;
+                                      <input name="select[]" type="checkbox" value="33"<?php if(in_array('33',$level)){?> checked <?php }?> />编辑&nbsp;
+                                      <input name="select[]" type="checkbox" value="34"<?php if(in_array('34',$level)){?> checked <?php }?> />查看&nbsp;
+                                      <div class="hr-line-dashed">
+                                      </div>
+                                     <label class="col-sm-2 control-label">
+                                        问答管理：
+                                      </label>
+                                      <input name="select[]" type="checkbox" value="41"<?php if(in_array('41',$level)){?> checked <?php }?> />添加 &nbsp;
+                                      <input name="select[]" type="checkbox" value="42"<?php if(in_array('42',$level)){?> checked <?php }?> />删除 &nbsp;
+                                      <input name="select[]" type="checkbox" value="43"<?php if(in_array('43',$level)){?> checked <?php }?> />编辑&nbsp;
+                                      <input name="select[]" type="checkbox" value="44"<?php if(in_array('44',$level)){?> checked <?php }?> />查看&nbsp;
+                                      <div class="hr-line-dashed">
+                                      </div>
+                                     <label class="col-sm-2 control-label">
+                                        广告管理：
+                                      </label>
+                                      <input name="select[]" type="checkbox" value="51"<?php if(in_array('51',$level)){?> checked <?php }?> />添加 &nbsp;
+                                      <input name="select[]" type="checkbox" value="52"<?php if(in_array('52',$level)){?> checked <?php }?> />删除 &nbsp;
+                                      <input name="select[]" type="checkbox" value="53"<?php if(in_array('53',$level)){?> checked <?php }?> />编辑&nbsp;
+                                      <input name="select[]" type="checkbox" value="54"<?php if(in_array('54',$level)){?> checked <?php }?> />查看&nbsp;
+                                      <input type="hidden" name="id" value="<?php echo $list['0']['id'] ?>" />
+                                      <div class="hr-line-dashed">
+                                      </div>
+                                      <div class="col-sm-4 col-sm-offset-2">
+                                           <input class="btn btn-primary"value="提交权限" type=submit>&nbsp;
+                                           <a href="<?php echo U('/admin/admin');?>"><input class="btn btn-primary"value="取消" ></a>
+                                      </div>
+                                </form>
+                            </div>
                     </div>
                 </div>
             </div>

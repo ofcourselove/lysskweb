@@ -234,97 +234,72 @@
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
             <div class="col-sm-12">
-                <p><a href="<?php echo U('add');?>" class="btn btn-w-m btn-primary">添加</a></p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <h5>
-                            管理员列表
+                            添加栏目
                         </h5>
-
                     </div>
                     <div class="ibox-content">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        ID
-                                    </th>
-                                    <th>
-                                        用户名
-                                    </th>
-                                    <th>
-                                        昵称
-                                    </th>
-                                    <th>
-                                        操作
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
-                                        <td>
-                                            <?php echo ($vo["id"]); ?>
-                                        </td>
-                                        <td>
-                                            <?php echo ($vo["username"]); ?>
-                                        </td>
-                                        <td>
-                                            <?php echo ($vo["nickname"]); ?>
-                                        </td>
-                                        <td>
-                                            <a href="<?php echo U('edit', array('id'=>$vo['id']));?>">编辑</a> | <a href="<?php echo U('del', array('id'=>$vo['id']));?>" onclick="return ajaxBtn(this)">删除</a>
-                                            | <a href="<?php echo U('level', array('id'=>$vo['id']));?>">权限管理</a>
-                                        </td>
-                                    </tr><?php endforeach; endif; else: echo "" ;endif; ?>
-                            </tbody>
-                        </table>
-                        <?php if($count > $page_size): ?><div class="row">
-    <div class="col-sm-6">
-    </div>
-    <div class="col-sm-6">
-        <div class="dataTables_paginate paging_simple_numbers" id="editable_paginate">
-            <ul class="pagination">
-                <?php if(is_array($page_list)): $i = 0; $__LIST__ = $page_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i; switch($vo["name"]): case "prev": if($vo['status'] == 'disabled'): ?><li aria-controls="editable" class="paginate_button previous disabled" id="editable_previous" tabindex="0">
-                                    <a href="#">
-                                        上一页
-                                    </a>
-                                </li>
-                            <?php else: ?>
-                                <li aria-controls="editable" class="paginate_button previous" id="editable_previous" tabindex="0">
-                                    <a href="<?php echo ($vo["url"]); ?>">
-                                        上一页
-                                    </a>
-                                </li><?php endif; break;?>
-                        <?php case "": if($vo['status'] == 'now'): ?><li aria-controls="editable" class="paginate_button active" tabindex="0">
-                                    <a href="#">
-                                        <?php echo ($vo["page"]); ?>
-                                    </a>
-                                </li>
-                            <?php else: ?>
-                                <li aria-controls="editable" class="paginate_button" tabindex="0">
-                                    <a href="<?php echo ($vo["url"]); ?>">
-                                        <?php echo ($vo["page"]); ?>
-                                    </a>
-                                </li><?php endif; break;?>
-                        <?php case "": if($vo['status'] == 'disabled'): ?><li aria-controls="editable" class="paginate_button next disabled" id="editable_next" tabindex="0">
-                                    <a href="#">
-                                        下一页
-                                    </a>
-                                </li>
-                            <?php else: ?>
-                                <li aria-controls="editable" class="paginate_button next" id="editable_next" tabindex="0">
-                                    <a href="<?php echo ($vo["page"]); ?>">
-                                        下一页
-                                    </a>
-                                </li><?php endif; break; endswitch; endforeach; endif; else: echo "" ;endif; ?>
-            </ul>
-        </div>
-    </div>
-</div><?php endif; ?>
+                        <?php if($vo['id']): ?><form class="form-horizontal" method="post" action="<?php echo U('update');?>" onsubmit="return ajaxForm(this)">
+                        <?php else: ?>
+                            <form class="form-horizontal" method="post" action="<?php echo U('insert');?>" onsubmit="return ajaxForm(this)"><?php endif; ?>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    栏目名称
+                                </label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" name="name" value="<?php echo ($vo["name"]); ?>"></input>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    排序
+                                </label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" name="sort" value="<?php echo ($vo["sort"]); ?>"></input>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    栏目标题
+                                </label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" name="title" value="<?php echo ($vo["title"]); ?>"></input>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    栏目关键字
+                                </label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" name="keywords" value="<?php echo ($vo["keywords"]); ?>"></input>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    栏目描述
+                                </label>
+                                <div class="col-sm-10">
+                                     <textarea id="ccomment" name="description" class="form-control" required="" aria-required="true"><?php echo ($vo["description"]); ?></textarea>
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed">
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                    <?php if(I('id')): ?><input type="hidden" name="id" value="<?php echo I('get.id');?>"><?php endif; ?>
+                                    <input type="hidden" name="pid" value="<?php echo I('get.pid', 0);?>">
+                                    <button class="btn btn-primary" type="submit">
+                                        保存内容
+                                    </button>
+                                    <button class="btn btn-white" type="submit">
+                                        取消
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

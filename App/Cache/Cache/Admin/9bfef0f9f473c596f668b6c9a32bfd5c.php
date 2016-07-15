@@ -84,6 +84,15 @@
                     <i class="fa fa-columns">
                     </i>
                     <span class="nav-label">
+                        栏目管理
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo U('WithdrawLog/index');?>">
+                    <i class="fa fa-columns">
+                    </i>
+                    <span class="nav-label">
                         提现记录
                     </span>
                 </a>
@@ -191,6 +200,7 @@
         </ul>
     </div>
 </nav>
+
         <!--左侧导航结束-->
         <!--右侧部分开始-->
         <div id="page-wrapper" class="gray-bg dashbard-1">

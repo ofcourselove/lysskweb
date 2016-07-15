@@ -44,27 +44,29 @@
                                         <td>
                                             {$vo.mobile}
                                         </td>
-                                        <td>{$vo.username}</td>
-                                        <td>{$vo.nickname}</td>
+                                        <td>{$sign[$key]['sign_num']}</td>  <!-- 通过传过来的sign数组的key与list的key一一对应原则 -->
+                                        <td>1654</td>
                                         <td>{$vo.balance}</td>
                                         <td>{$vo.income}</td>
                                         <td>
-                                            <a href="{:U('BalanceLog/index')}">查看</a>
+                                            <a href="{:U('BalanceLog/withdraw_list',array( 'user_id' => $vo['id'] ))}">查看</a>
                                         </td>
                                         <td>
-                                            <a href="{:U('BalanceLog/index')}">查看</a>
+                                            <a href="{:U('article/article_list',array( 'user_id' => $vo['id'] ))}">查看</a>
                                         </td>
                                         <td>
-                                            <a href="{:U('BalanceLog/index')}">查看</a>
+                                            <a href="{:U('user/recommend',array( 'user_id' => $vo['id'] ))}">
+                                            查看</a>
                                         </td>
                                         <td>
-                                            <a href="{:U('BalanceLog/index')}">查看</a>
+                                            <a href="{:U('user/prentice',array( 'user_id' => $vo['id'] ))}">
+                                            查看</a>
                                         </td>
                                         <td>
-                                            <a href="{:U('BalanceLog/index')}">查看</a>
+                                            <a href="{:U('BalanceLog/recharge_list',array( 'user_id' => $vo['id'] ))}">查看</a>
                                         </td>
                                         <td>
-                                            <a href="{:U('BalanceLog/index')}">查看</a>
+                                            <a href="{:U('BalanceLog/play_tour',array( 'user_id' => $vo['id'] ))}">查看</a>
                                         </td>
                                         <td>
                                             <a href="{:U('BalanceLog/index')}">查看</a>

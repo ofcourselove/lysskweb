@@ -232,54 +232,55 @@
             <div class="row J_mainContent" id="content-main">
                 
     <div class="wrapper wrapper-content animated fadeInRight">
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-sm-12">
                 <p><a href="<?php echo U('add');?>" class="btn btn-w-m btn-primary">添加</a></p>
             </div>
-        </div>
+        </div> -->
         <div class="row">
             <div class="col-sm-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <h5>
-                            管理员列表
+                            
                         </h5>
-
                     </div>
                     <div class="ibox-content">
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
+                                   <!--  <th>
+                                        用户ID
+                                    </th> -->
                                     <th>
-                                        ID
+                                        徒弟ID
                                     </th>
                                     <th>
-                                        用户名
+                                        注册手机
+                                    </th>                                    
+                                    <th>
+                                        注册时间
                                     </th>
                                     <th>
-                                        昵称
-                                    </th>
-                                    <th>
-                                        操作
+                                        收徒收益
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
+
                                 <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr>
                                         <td>
-                                            <?php echo ($vo["id"]); ?>
+                                           <?php echo ($vo["id"]); ?>
                                         </td>
                                         <td>
-                                            <?php echo ($vo["username"]); ?>
+                                           <?php echo ($vo["mobile"]); ?>
                                         </td>
                                         <td>
-                                            <?php echo ($vo["nickname"]); ?>
+                                           <?php echo date('Y-m-d H:i:s', $vo['create_time']);?>
                                         </td>
                                         <td>
-                                            <a href="<?php echo U('edit', array('id'=>$vo['id']));?>">编辑</a> | <a href="<?php echo U('del', array('id'=>$vo['id']));?>" onclick="return ajaxBtn(this)">删除</a>
-                                            | <a href="<?php echo U('level', array('id'=>$vo['id']));?>">权限管理</a>
-                                        </td>
-                                    </tr><?php endforeach; endif; else: echo "" ;endif; ?>
+                                            0.5
+                                        </td><?php endforeach; endif; else: echo "" ;endif; ?>
                             </tbody>
                         </table>
                         <?php if($count > $page_size): ?><div class="row">

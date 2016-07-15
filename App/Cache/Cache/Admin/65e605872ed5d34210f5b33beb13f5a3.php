@@ -84,6 +84,15 @@
                     <i class="fa fa-columns">
                     </i>
                     <span class="nav-label">
+                        栏目管理
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo U('WithdrawLog/index');?>">
+                    <i class="fa fa-columns">
+                    </i>
+                    <span class="nav-label">
                         提现记录
                     </span>
                 </a>
@@ -191,6 +200,7 @@
         </ul>
     </div>
 </nav>
+
         <!--左侧导航结束-->
         <!--右侧部分开始-->
         <div id="page-wrapper" class="gray-bg dashbard-1">
@@ -264,27 +274,29 @@
                                         <td>
                                             <?php echo ($vo["mobile"]); ?>
                                         </td>
-                                        <td><?php echo ($vo["username"]); ?></td>
-                                        <td><?php echo ($vo["nickname"]); ?></td>
+                                        <td><?php echo ($sign[$key]['sign_num']); ?></td>  <!-- 通过传过来的sign数组的key与list的key一一对应原则 -->
+                                        <td>1654</td>
                                         <td><?php echo ($vo["balance"]); ?></td>
                                         <td><?php echo ($vo["income"]); ?></td>
                                         <td>
-                                            <a href="<?php echo U('BalanceLog/index');?>">查看</a>
+                                            <a href="<?php echo U('BalanceLog/withdraw_list',array( 'user_id' => $vo['id'] ));?>">查看</a>
                                         </td>
                                         <td>
-                                            <a href="<?php echo U('BalanceLog/index');?>">查看</a>
+                                            <a href="<?php echo U('article/article_list',array( 'user_id' => $vo['id'] ));?>">查看</a>
                                         </td>
                                         <td>
-                                            <a href="<?php echo U('BalanceLog/index');?>">查看</a>
+                                            <a href="<?php echo U('user/recommend',array( 'user_id' => $vo['id'] ));?>">
+                                            查看</a>
                                         </td>
                                         <td>
-                                            <a href="<?php echo U('BalanceLog/index');?>">查看</a>
+                                            <a href="<?php echo U('user/prentice',array( 'user_id' => $vo['id'] ));?>">
+                                            查看</a>
                                         </td>
                                         <td>
-                                            <a href="<?php echo U('BalanceLog/index');?>">查看</a>
+                                            <a href="<?php echo U('BalanceLog/recharge_list',array( 'user_id' => $vo['id'] ));?>">查看</a>
                                         </td>
                                         <td>
-                                            <a href="<?php echo U('BalanceLog/index');?>">查看</a>
+                                            <a href="<?php echo U('BalanceLog/play_tour',array( 'user_id' => $vo['id'] ));?>">查看</a>
                                         </td>
                                         <td>
                                             <a href="<?php echo U('BalanceLog/index');?>">查看</a>

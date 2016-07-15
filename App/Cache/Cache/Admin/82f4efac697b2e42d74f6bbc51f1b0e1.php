@@ -89,6 +89,15 @@
                 </a>
             </li>
             <li>
+                <a href="<?php echo U('WithdrawLog/index');?>">
+                    <i class="fa fa-columns">
+                    </i>
+                    <span class="nav-label">
+                        提现记录
+                    </span>
+                </a>
+            </li>
+            <li>
                 <a href="">
                     <i class="fa fa-desktop">
                     </i>
@@ -118,9 +127,17 @@
                     <span class="nav-label">
                         问答管理
                     </span>
+                    <span class="fa arrow"></span>
                 </a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="<?php echo U('Problem/index');?>">
+                            问答列表
+                        </a>
+                    </li>
+                </ul>
             </li>
-            <li>
+            <!-- <li>
                 <a href="<?php echo U('Message/index');?>">
                     <i class="fa fa-desktop">
                     </i>
@@ -137,7 +154,7 @@
                         </a>
                     </li>
                 </ul>
-            </li>
+            </li> -->
             <li>
                 <a href="<?php echo U('Banner/index');?>">
                     <i class="fa fa-desktop">
@@ -145,7 +162,22 @@
                     <span class="nav-label">
                         广告管理
                     </span>
+                    <span class="fa arrow"></span>
                 </a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="<?php echo U('Banner/index');?>">
+                            广告列表
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="<?php echo U('Banner/add');?>">
+                            广告添加
+                        </a>
+                    </li>
+                </ul>
             </li>
             <li>
                 <a href="<?php echo U('System/index');?>">
@@ -168,6 +200,7 @@
         </ul>
     </div>
 </nav>
+
         <!--左侧导航结束-->
         <!--右侧部分开始-->
         <div id="page-wrapper" class="gray-bg dashbard-1">

@@ -1,61 +1,56 @@
 <extend name="Public/layer" />
 <block name="body">
     <div class="wrapper wrapper-content animated fadeInRight">
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-sm-12">
                 <p><a href="{:U('add')}" class="btn btn-w-m btn-primary">添加</a></p>
             </div>
-        </div>
+        </div> -->
         <div class="row">
             <div class="col-sm-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <h5>
-                            文章列表
+                            
                         </h5>
                     </div>
                     <div class="ibox-content">
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
+                                   <!--  <th>
+                                        用户ID
+                                    </th> -->
                                     <th>
-                                        ID
+                                        文章ID
                                     </th>
                                     <th>
-                                        文章标题
-                                    </th>
-                                    <th>分类</th>
+                                        创建时间
+                                    </th>                                    
                                     <th>
-                                        阅读量
+                                        收益金额
                                     </th>
-                                    <th>创建时间</th>
-                                    <th>作者</th>
                                     <th>
-                                        操作
+                                        次数
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <volist name="list" id="vo">
+
+                                <volist name="list" id="vo"> 
                                     <tr>
                                         <td>
-                                            {$vo.id}
+                                           {$vo.id}
                                         </td>
                                         <td>
-                                            {$vo.title}
-                                        </td>
-                                        <td>{$vo.name}</td>
-                                        <td>{$vo.click_count}</td>
-                                        <td>
-                                            {:date('Y-m-d H:i:s', $vo['create_time'])}
+                                           {:date('Y-m-d H:i:s', $vo['create_time'])}
                                         </td>
                                         <td>
-                                            {$vo.author}
+                                           0.04
                                         </td>
                                         <td>
-                                            <a href="{:U('edit', array('id'=>$vo['id']))}">编辑</a> | <a href="{:U('del', array('id'=>$vo['id']))}" onclick="return ajaxBtn(this)">删除</a>
+                                            <a href="">{$vo.click_count}</a>
                                         </td>
-                                    </tr>
                                 </volist>
                             </tbody>
                         </table>

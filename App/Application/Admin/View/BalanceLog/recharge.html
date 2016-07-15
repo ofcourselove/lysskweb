@@ -1,7 +1,11 @@
-暂时无用
-<!-- <extend name="Public/layer" />
+<extend name="Public/layer" />
 <block name="body">
     <div class="wrapper wrapper-content animated fadeInRight">
+        <!-- <div class="row">
+            <div class="col-sm-12">
+                <p><a href="{:U('add')}" class="btn btn-w-m btn-primary">添加</a></p>
+            </div>
+        </div> -->
         <div class="row">
             <div class="col-sm-12">
                 <div class="ibox float-e-margins">
@@ -14,24 +18,27 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th>编号</th>
-                                    <th>真实姓名 </th>
-                                    <th>手机号</th>
-                                    <th>提现金额</th>
-                                    <th>提取时间</th>
-                                    <th>操作</th>
+                                    <th>
+                                        用户ID
+                                    </th>
+                                    <th>
+                                        充值金额
+                                    </th>
+                                    <th>时间</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <volist name="list" id="vo">
+
+                                <volist name="list" id="vo"> 
                                     <tr>
-                                        <td>11</td>
-                                        <td>sdf</td>
-                                        <td>123124323</td>
-                                        <td>666</td>
-                                        <td>2016</td>
                                         <td>
-                                            <a href="{:U('BalanceLog/index')}">查看</a>
+                                            {$vo.user_id}
+                                        </td>
+                                        <td>
+                                            {$vo.balance}
+                                        </td>
+                                        <td>
+                                            {:date('Y-m-d H:i:s', $vo['create_time'])}
                                         </td>
                                     </tr>
                                 </volist>
@@ -43,4 +50,4 @@
             </div>
         </div>
     </div>
-</block> -->
+</block>

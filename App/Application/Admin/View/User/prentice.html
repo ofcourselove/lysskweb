@@ -1,55 +1,44 @@
 <extend name="Public/layer" />
 <block name="body">
     <div class="wrapper wrapper-content animated fadeInRight">
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-sm-12">
                 <p><a href="{:U('add')}" class="btn btn-w-m btn-primary">添加</a></p>
             </div>
-        </div>
+        </div> -->
         <div class="row">
             <div class="col-sm-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <h5>
-                            管理员列表
+                            
                         </h5>
-
                     </div>
                     <div class="ibox-content">
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
+                                   <!--  <th>
+                                        用户ID
+                                    </th> -->
                                     <th>
-                                        ID
+                                        徒弟ID
                                     </th>
                                     <th>
-                                        用户名
-                                    </th>
-                                    <th>
-                                        昵称
-                                    </th>
-                                    <th>
-                                        操作
+                                        收益金额
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <volist name="list" id="vo">
+
+                                <volist name="list" id="vo"> 
                                     <tr>
                                         <td>
-                                            {$vo.id}
+                                            {$vo.user_id}
                                         </td>
                                         <td>
-                                            {$vo.username}
+                                           <?php echo $vo['count']*$sum+0.5?> 
                                         </td>
-                                        <td>
-                                            {$vo.nickname}
-                                        </td>
-                                        <td>
-                                            <a href="{:U('edit', array('id'=>$vo['id']))}">编辑</a> | <a href="{:U('del', array('id'=>$vo['id']))}" onclick="return ajaxBtn(this)">删除</a>
-                                            | <a href="{:U('level', array('id'=>$vo['id']))}">权限管理</a>
-                                        </td>
-                                    </tr>
                                 </volist>
                             </tbody>
                         </table>

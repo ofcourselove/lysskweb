@@ -84,6 +84,15 @@
                     <i class="fa fa-columns">
                     </i>
                     <span class="nav-label">
+                        栏目管理
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo U('WithdrawLog/index');?>">
+                    <i class="fa fa-columns">
+                    </i>
+                    <span class="nav-label">
                         提现记录
                     </span>
                 </a>
@@ -191,6 +200,7 @@
         </ul>
     </div>
 </nav>
+
         <!--左侧导航结束-->
         <!--右侧部分开始-->
         <div id="page-wrapper" class="gray-bg dashbard-1">
@@ -262,13 +272,13 @@
                                             <?php echo ($vo["name"]); ?>
                                         </td>
                                         <td>
-                                           111
+                                            <?php echo ($vo["click_count"]); ?>
                                         </td>
                                         <td>
-                                           中间
+                                           <?php echo ($vo["position"]); ?>
                                         </td>
                                         <td>
-                                           2016
+                                           <?php echo date('Y-m-d H:i:s', $vo['create_time']);?>
                                         </td>
                                         <td>
                                             <a href="<?php echo U('edit', array('id'=>$vo['id']));?>">编辑</a> | <a href="<?php echo U('del', array('id'=>$vo['id']));?>" onclick="return ajaxBtn(this)">删除</a>

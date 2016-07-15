@@ -58,7 +58,7 @@ class ArticleModel extends BaseModel
     {
         $map['id'] = $id;
         $data['click_count'] = array('exp', 'click_count+1');
-
+        print_r('66666');die;
         return $this->where($map)->save($data);
     }
 }

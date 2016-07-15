@@ -64,5 +64,24 @@ class AdminModel extends Model
         $result = $this->where($map)->save();
         return $result;
     }
+    /*****
+    * 对管理员权限检测函数
+    *
+    ******/
+    public function check($date)
+    {
+      $admin = session('uid');
+  		$list = $this->where('id='.$admin)->find();
+  		$level = $list['level'];//从数据库取出level值
+      if ($level=='0') {
+          return true;
+      }
+      $level = explode(',',$level);
+      if (in_array($date,$level)) {
+          return true;
+      }else {
+          return false;
+      }
+    }
 
 }

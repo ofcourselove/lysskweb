@@ -84,6 +84,15 @@
                     <i class="fa fa-columns">
                     </i>
                     <span class="nav-label">
+                        栏目管理
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo U('WithdrawLog/index');?>">
+                    <i class="fa fa-columns">
+                    </i>
+                    <span class="nav-label">
                         提现记录
                     </span>
                 </a>
@@ -191,6 +200,7 @@
         </ul>
     </div>
 </nav>
+
         <!--左侧导航结束-->
         <!--右侧部分开始-->
         <div id="page-wrapper" class="gray-bg dashbard-1">
@@ -245,11 +255,12 @@
                                     <th>
                                         文章标题
                                     </th>
-                                    <th>缩略图</th>
+                                    <th>分类</th>
                                     <th>
-                                        点击数
+                                        阅读量
                                     </th>
                                     <th>创建时间</th>
+                                    <th>作者</th>
                                     <th>
                                         操作
                                     </th>
@@ -263,10 +274,13 @@
                                         <td>
                                             <?php echo ($vo["title"]); ?>
                                         </td>
-                                        <td><img src="<?php echo ($vo["thumb"]); ?>" alt="" width="100px"></td>
+                                        <td><?php echo ($vo["name"]); ?></td>
                                         <td><?php echo ($vo["click_count"]); ?></td>
                                         <td>
                                             <?php echo date('Y-m-d H:i:s', $vo['create_time']);?>
+                                        </td>
+                                        <td>
+                                            <?php echo ($vo["author"]); ?>
                                         </td>
                                         <td>
                                             <a href="<?php echo U('edit', array('id'=>$vo['id']));?>">编辑</a> | <a href="<?php echo U('del', array('id'=>$vo['id']));?>" onclick="return ajaxBtn(this)">删除</a>

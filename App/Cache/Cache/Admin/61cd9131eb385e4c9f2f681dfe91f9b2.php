@@ -72,11 +72,11 @@
                             会员列表
                         </a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="<?php echo U('WithdrawLog/index');?>">
                             提现申请
                         </a>
-                    </li>
+                    </li> -->
                 </ul>
             </li>
             <li>
@@ -85,6 +85,15 @@
                     </i>
                     <span class="nav-label">
                         栏目管理
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo U('WithdrawLog/index');?>">
+                    <i class="fa fa-columns">
+                    </i>
+                    <span class="nav-label">
+                        提现记录
                     </span>
                 </a>
             </li>
@@ -104,6 +113,11 @@
                             文章列表
                         </a>
                     </li>
+                     <li>
+                        <a href="<?php echo U('Article/add');?>">
+                            添加文章
+                        </a>
+                    </li>
                 </ul>
             </li>
             <li>
@@ -113,9 +127,17 @@
                     <span class="nav-label">
                         问答管理
                     </span>
+                    <span class="fa arrow"></span>
                 </a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="<?php echo U('Problem/index');?>">
+                            问答列表
+                        </a>
+                    </li>
+                </ul>
             </li>
-            <li>
+            <!-- <li>
                 <a href="<?php echo U('Message/index');?>">
                     <i class="fa fa-desktop">
                     </i>
@@ -132,7 +154,7 @@
                         </a>
                     </li>
                 </ul>
-            </li>
+            </li> -->
             <li>
                 <a href="<?php echo U('Banner/index');?>">
                     <i class="fa fa-desktop">
@@ -140,7 +162,22 @@
                     <span class="nav-label">
                         广告管理
                     </span>
+                    <span class="fa arrow"></span>
                 </a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="<?php echo U('Banner/index');?>">
+                            广告列表
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="<?php echo U('Banner/add');?>">
+                            广告添加
+                        </a>
+                    </li>
+                </ul>
             </li>
             <li>
                 <a href="<?php echo U('System/index');?>">
@@ -163,6 +200,7 @@
         </ul>
     </div>
 </nav>
+
         <!--左侧导航结束-->
         <!--右侧部分开始-->
         <div id="page-wrapper" class="gray-bg dashbard-1">
@@ -210,13 +248,22 @@
                                         ID
                                     </th>
                                     <th>
-                                        会员用户名
+                                        真实姓名
+                                    </th>
+                                    <th>
+                                         手机号码
                                     </th>
                                     <th>提现金额</th>
                                     <th>提现类型</th>
+                                    <th>
+                                        提现日期
+                                    </th>
                                     <th>状态</th>
                                     <th>
                                         操作
+                                    </th>
+                                    <th>
+                                       详细
                                     </th>
                                 </tr>
                             </thead>
@@ -226,12 +273,18 @@
                                             <?php echo ($vo["id"]); ?>
                                         </td>
                                         <td>
-                                            <?php echo ($vo["username"]); ?>
+                                            <?php echo ($vo["nickname"]); ?>
+                                        </td>
+                                        <td>
+                                            <?php echo ($vo["mobile"]); ?>
                                         </td>
                                         <td><?php echo ($vo["amount"]); ?></td>
                                         <td>
                                             <?php switch($vo["pay_type"]): case "1": ?>微信<?php break;?>
                                                 <?php case "2": ?>支付宝<?php break; endswitch;?>
+                                        </td>
+                                        <td>
+                                          <?php echo date('Y-m-d H:i:s', $vo['create_time']);?>
                                         </td>
                                         <td>
                                             <?php switch($vo["status"]): case "0": ?>待审核<?php break;?>
@@ -241,6 +294,9 @@
                                         <td>
                                             <?php switch($vo["status"]): case "0": ?><a href="<?php echo U('WithdrawLog/status', array('status'=> 1,'id'=>$vo['id']));?>">审核通过</a> |
                                                     <a href="<?php echo U('WithdrawLog/status', array('status'=> 2,'id'=>$vo['id']));?>">审核驳回</a><?php break; endswitch;?>
+                                        </td>
+                                        <td>
+                                          <a href="<?php echo U('BalanceLog/withdraw_list',array( 'user_id' => $vo['user_id'] ));?>">查看</a>
                                         </td>
                                     </tr><?php endforeach; endif; else: echo "" ;endif; ?>
                             </tbody>
