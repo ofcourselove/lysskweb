@@ -22,7 +22,7 @@ class CategoryController extends BaseController
       $model = D('Admin');
       $check = $model->check(14);
       if (!$check) {
-        $this->error('无访问权限', U('/Admin/admin'));
+        $this->error('无访问权限');
       }
       parent::index();
     }

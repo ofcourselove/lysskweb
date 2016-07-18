@@ -3,6 +3,7 @@ namespace Admin\Controller;
 
 use Admin\Controller;
 use Common\Helper\Page;
+use Common\Wechat\Pay;
 
 class WithdrawLogController extends BaseController
 {
@@ -11,7 +12,7 @@ class WithdrawLogController extends BaseController
         $model = D('Admin');
         $check = $model->check(21);
         if (!$check) {
-          $this->error('无访问权限', U('/Admin/admin'));
+          $this->error('无访问权限');
         }
         $model = D('WithdrawLog');
         // $page_index = (int) I('p', 1);
@@ -69,7 +70,8 @@ class WithdrawLogController extends BaseController
             switch ($status) {
                 case 1:
                     $balance_result = true;
-                    require_once ('/sp.php');//此处调用微信支付
+                    $pay = new Pay;//此处实例化微信支付类
+                    $pay->pay($open_id,$amount,$desc);//调用微信支付方法 参数为openid ,转账金额 ，转账描述
                     break;
                 case 2:    //审核驳回返还提现金额
                     $userModel = D('User');

@@ -9,7 +9,7 @@ class BannerController extends BaseController
     $model = D('Admin');
     $check = $model->check(54);
     if (!$check) {
-      $this->error('无访问权限', U('/Admin'));
+      $this->error('无访问权限');
     }
     parent::index();
   }
@@ -19,7 +19,7 @@ class BannerController extends BaseController
     if (!$check) {
       $this->error('无访问权限', U('/Admin/banner'));
     }
-    parent::insert();
+    parent::add();
   }
   public function edit(){
     $model = D('Admin');
