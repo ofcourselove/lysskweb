@@ -9,7 +9,11 @@ class BannerController extends BaseController
     $model = D('Admin');
     $check = $model->check(54);
     if (!$check) {
+<<<<<<< HEAD
       $this->error('无访问权限');
+=======
+      $this->error('无访问权限', U('/Admin'));
+>>>>>>> 15e37d68e0dc17d8168f481f5fea2cd0eb207a06
     }
     parent::index();
   }
@@ -19,7 +23,11 @@ class BannerController extends BaseController
     if (!$check) {
       $this->error('无访问权限', U('/Admin/banner'));
     }
+<<<<<<< HEAD
     parent::add();
+=======
+    parent::insert();
+>>>>>>> 15e37d68e0dc17d8168f481f5fea2cd0eb207a06
   }
   public function edit(){
     $model = D('Admin');

@@ -57,7 +57,11 @@ class ArticleController extends BaseController
       $model = D('Admin');
 			$check = $model->check(34);
 			if (!$check) {
+<<<<<<< HEAD
 				$this->error('无访问权限');
+=======
+				$this->error('无访问权限', U('/Admin'));
+>>>>>>> 15e37d68e0dc17d8168f481f5fea2cd0eb207a06
 			}
       $model = D('article');
       $list = $model->join('left join ly_category on ly_article.category_id=ly_category.id')->select();
